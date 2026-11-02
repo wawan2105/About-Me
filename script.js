@@ -1004,3 +1004,59 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   setLanguage(currentLang);
 });
+
+
+// Device previews use an iframe so responsive breakpoints follow its actual width.
+document.addEventListener('DOMContentLoaded', () => {
+  if (new URLSearchParams(location.search).has('devicePreview')) return;
+  const toolbar = document.createElement('div');
+  toolbar.className = 'device-toolbar no-print';
+  toolbar.setAttribute('role', 'group');
+  toolbar.setAttribute('aria-label', 'Mode tampilan / Device preview');
+  const modes = [['phone', 'HP', 390], ['tablet', 'Tablet', 768], ['laptop', 'Laptop', 0]];
+  let preview;
+  let frame;
+  let selectedWidth = 0;
+  const fitPreview = () => {
+    if (!preview) return;
+    const scale = Math.min(1, (window.innerWidth - 24) / selectedWidth);
+    frame.style.width = selectedWidth + 'px';
+    frame.style.height = ((window.innerHeight - 100) / scale) + 'px';
+    frame.style.transform = `scale(${scale})`;
+    preview.style.setProperty('--preview-width', (selectedWidth * scale) + 'px');
+  };
+  modes.forEach(([mode, label, width]) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = label;
+    button.dataset.device = mode;
+    button.setAttribute('aria-pressed', String(mode === 'laptop'));
+    button.addEventListener('click', () => {
+      toolbar.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      if (preview) preview.remove();
+      preview = null;
+      document.body.classList.remove('device-preview-open');
+      if (!width) return;
+      selectedWidth = width;
+      preview = document.createElement('div');
+      preview.className = 'device-preview no-print';
+      preview.setAttribute('role', 'region');
+      preview.setAttribute('aria-label', 'Pratinjau ' + label);
+      frame = document.createElement('iframe');
+      frame.title = 'Website preview — ' + label;
+      const url = new URL(location.href);
+      url.searchParams.set('devicePreview', '1');
+      frame.src = url.href;
+      preview.appendChild(frame);
+      document.body.appendChild(preview);
+      document.body.classList.add('device-preview-open');
+      fitPreview();
+    });
+    toolbar.appendChild(button);
+  });
+  document.body.appendChild(toolbar);
+  window.addEventListener('resize', fitPreview);
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && preview) toolbar.querySelector('[data-device="laptop"]').click();
+  });
+});
