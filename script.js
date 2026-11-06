@@ -675,36 +675,7 @@ const projectData = {
       demoLabel: null
     }
   },
-  'supermarket-db': {
-    category: 'database',
-    tags: ['SQL', 'PostgreSQL', 'ERD Design', 'Data Modeling', 'Business Intelligence'],
-    demoUrl: null,
-    githubUrl: null,
-    id: {
-      title: 'Supermarket Relational Database & Analytics System',
-      subtitle: 'Perancangan Basis Data Relasional, ETL, dan Analitik Penjualan',
-      badge: 'Database & Analytics',
-      overview: 'Membangun arsitektur basis data relasional untuk data ritel supermarket, mencakup entitas transaksi pelanggan, produk, cabang kasir, dan inventaris. Dilengkapi alur ETL data cleaning dan query analitik performa cabang.',
-      keyPoints: [
-        'Desain skema database relasional dengan normalisasi, integritas foreign key, dan indeks performa',
-        'Pipeline pembersihan data transaksi dan agregasi analitik branch performance',
-        'Pembuatan view analitik untuk memonitor margin penjualan, tren waktu transaksi, dan segmentasi pelanggan'
-      ],
-      demoLabel: null
-    },
-    en: {
-      title: 'Supermarket Relational Database & Analytics System',
-      subtitle: 'End-to-End Relational Data Modeling, ETL, and Sales Analytics',
-      badge: 'Database & Analytics',
-      overview: 'Worked with an end-to-end relational retail data model covering customers, products, branches, invoices, and transactions; executed ETL workflows, data cleaning, integrity verification, and SQL-driven business intelligence views.',
-      keyPoints: [
-        'Entity Relationship Diagram (ERD) design with primary/foreign-key enforcement and query indexing',
-        'Data cleaning and staging pipelines ensuring cross-table referential consistency',
-        'Developed analytical views and dashboard queries for branch, product, and sales performance tracking'
-      ],
-      demoLabel: null
-    }
-  },
+  "supermarket-db": {"category": "database", "tags": ["R Shiny", "MariaDB", "SQL", "DBI / RMariaDB", "ERD", "Plotly", "Leaflet"], "demoUrl": null, "githubUrl": null, "id": {"title": "WA-ONE Swalayan — Database & Sales Analytics Dashboard", "subtitle": "Proyek Tim • Peran: Database Manager", "badge": "Database & Retail Analytics", "overview": "Proyek tim pengembangan basis data relasional dan dashboard supermarket WA-ONE Swalayan. Berperan sebagai Database Manager, dengan integrasi MariaDB dan R Shiny untuk analisis penjualan, produk, pelanggan, serta performa cabang.", "keyPoints": ["Peran dalam tim: Database Manager; proyek mencakup entitas Cabang, Produk, Pelanggan, dan Invoice", "Koneksi basis data MariaDB melalui DBI dan RMariaDB, pembuatan tabel, serta impor data CSV menggunakan R", "Dashboard R Shiny untuk KPI penjualan, tren produk, segmentasi pelanggan dan analisis RFM, serta perbandingan performa cabang", "Visualisasi interaktif dengan Plotly, highcharter, DT, dan Leaflet; filter tahun dan kategori produk serta pemeriksaan konsistensi total transaksi"]}, "en": {"title": "WA-ONE Swalayan — Database & Sales Analytics Dashboard", "subtitle": "Team Project • Role: Database Manager", "badge": "Database & Retail Analytics", "overview": "A team project combining a relational retail database with the WA-ONE Swalayan supermarket dashboard. Served as Database Manager, using MariaDB and R Shiny integration to support sales, product, customer, and branch-performance analytics.", "keyPoints": ["Team role: Database Manager; the project models Branch, Product, Customer, and Invoice entities", "MariaDB connections through DBI and RMariaDB, table creation, and CSV data imports using R", "R Shiny dashboard covering sales KPIs, product trends, customer segmentation and RFM analysis, and branch comparisons", "Interactive Plotly, highcharter, DT, and Leaflet views, year/category filters, and transaction-total consistency checks"]}},
   'fsva': {
     category: 'dashboard',
     tags: ['R Shiny', 'Leaflet', 'Data Visualization', 'Official Statistics', 'Public Policy'],
