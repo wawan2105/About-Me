@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 31221)
+Total output lines: 1645
+
 <!DOCTYPE html>
 <html lang="id" class="dark scroll-smooth">
 <head>
@@ -261,7 +264,7 @@
                   <!-- Metric 1: Projects -->
                   <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/60">
                     <span data-i18n="hero.metric1_label" class="text-xs text-slate-500 dark:text-slate-400 block font-sans">Project</span>
-                    <span data-i18n="hero.metric1_val" class="text-lg sm:text-xl font-bold text-teal-600 dark:text-teal-400">9+</span>
+                    <span data-i18n="hero.metric1_val" class="text-lg sm:text-xl font-bold text-teal-600 dark:text-teal-400">10+</span>
                     <span data-i18n="hero.metric1_desc" class="text-[11px] text-slate-600 dark:text-slate-400 block font-sans mt-0.5">Data Science & Applied Research</span>
                   </div>
 
@@ -491,10 +494,41 @@
         </div>
       </div>
 
-      <!-- Projects Grid (9 Projects) -->
+      <!-- Projects Grid (10 Projects) -->
       <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
         <!-- Project 1: BERTopic Master's Thesis (Category: ml) -->
+        <div class="project-card flex flex-col rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:border-teal-500/50 transition-all" data-category="ml" data-project-id="labour-news">
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="project-badge px-2.5 py-1 text-[11px] font-semibold rounded-full bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20">
+                  Riset / NLP
+                </span>
+                <span class="text-xs font-mono text-slate-400">Python • BERTopic</span>
+              </div>
+              <h4 class="project-title text-lg font-bold text-slate-900 dark:text-white hover:text-teal-500 transition-colors cursor-pointer" onclick="openProjectModal('labour-news')">
+                Online News for Labour Market Monitoring in Indonesia
+              </h4>
+              <p class="project-desc text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 line-clamp-3">Pemanfaatan berita CNN Indonesia dan Detik sebagai informasi pelengkap pemantauan isu ketenagakerjaan. Penelitian membandingkan IndoBERT dan IndoSBERT dalam BERTopic serta menganalisis perubahan perhatian media bulanan.</p>
+            </div>
+
+            <div class="pt-6">
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">BERTopic</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">IndoBERT</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">HDBSCAN</span>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+                <button onclick="openProjectModal('labour-news')" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline flex items-center gap-1">
+                  <span class="project-detail-btn-text" data-i18n="proj.btn_detail">Detail Proyek</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <div class="project-card flex flex-col rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:border-teal-500/50 transition-all" data-category="ml" data-project-id="bertopic">
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
@@ -735,79 +769,7 @@
               <h4 class="project-title text-lg font-bold text-slate-900 dark:text-white hover:text-teal-500 transition-colors cursor-pointer" onclick="openProjectModal('google-play-scraping')">
                 Supermarket Relational Web Scraping & Analytics System
               </h4>
-              <p class="project-desc text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 line-clamp-3">Mengumpulkan 1.340 aplikasi unik dari Google Play Store, mengolah data dengan R dan Python, serta menganalisis rating, unduhan, kategori, dan developer melalui agregasi MongoDB.</p>
-            </div>
-
-            <div class="pt-6">
-              <div class="flex flex-wrap gap-1.5 mb-4">
-                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">MongoDB</span>
-                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Web Scraping</span>
-                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">1,340 Apps</span>
-              </div>
-              <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
-                <button onclick="openProjectModal('google-play-scraping')" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline flex items-center gap-1">
-                  <span class="project-detail-btn-text" data-i18n="proj.btn_detail">Detail Proyek</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 9: FSVA Dashboard (Category: dashboard) -->
-        <div class="project-card flex flex-col rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:border-teal-500/50 transition-all" data-category="dashboard" data-project-id="fsva">
-          <div class="p-6 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="project-badge px-2.5 py-1 text-[11px] font-semibold rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                  Live Dashboard & Analytics
-                </span>
-                <span class="text-xs font-mono text-slate-400">R Shiny • Leaflet</span>
-              </div>
-              <h4 class="project-title text-lg font-bold text-slate-900 dark:text-white hover:text-teal-500 transition-colors cursor-pointer" onclick="openProjectModal('fsva')">
-                Food Security Vulnerability Atlas (FSVA) Indonesia
-              </h4>
-              <p class="project-desc text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 line-clamp-3">
-                Berkontribusi dalam analisis dan visualisasi indikator ketahanan pangan regional melalui pengembangan produk data interaktif berbasis R Shiny dan Leaflet.
-              </p>
-            </div>
-
-            <div class="pt-6">
-              <div class="flex flex-wrap gap-1.5 mb-4">
-                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">R Shiny</span>
-                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Spatial Map</span>
-                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Food Security</span>
-              </div>
-              <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
-                <button onclick="openProjectModal('fsva')" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline flex items-center gap-1">
-                  <span class="project-detail-btn-text" data-i18n="proj.btn_detail">Detail Proyek</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
-                </button>
-                <a href="https://6oai34-fani-fahira.shinyapps.io/fsva_dashboard_indonesia/" target="_blank" rel="noopener noreferrer" class="p-1.5 rounded-lg text-slate-500 hover:text-teal-500 hover:bg-slate-100 dark:hover:bg-slate-800" title="Buka Live Dashboard">
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-<section id="experience" class="py-16 bg-white dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800/80 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-        <div>
-          <h2 data-i18n="exp.tag" class="text-xs uppercase font-mono tracking-widest text-teal-600 dark:text-teal-400 font-semibold">Jejak Karir & Pengalaman</h2>
-          <h3 data-i18n="exp.title" class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">
-            Pengalaman Industri & Pengajaran Akademik
-          </h3>
-        </div>
-
-        <!-- Tab Switcher -->
-        <div class="inline-flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 self-start sm:self-auto no-print">
+              <p class="project-desc text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 line-clamp-3">Mengumpulkan 1.340 aplikasi unik dari Google Play Store, mengolah data dengan R dan Python, serta menganalisis rating, und…1221 tokens truncated…  <div class="inline-flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 self-start sm:self-auto no-print">
           <button id="tab-professional" data-i18n="exp.tab_prof" class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg border-b-2 border-teal-500 text-teal-600 dark:text-teal-400 transition-all">
             Industri & Riset Terapan
           </button>
@@ -1611,3 +1573,4 @@
   </script>
 </body>
 </html>
+
