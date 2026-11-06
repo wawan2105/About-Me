@@ -56,9 +56,9 @@ const translations = {
     "about.focus_label": "Fokus & Minat Terapan:",
     "about.supporting_label": "Kapabilitas Teknis Pendukung:",
     "about.edu_title": "Riwayat Pendidikan Formal",
-    "about.master_tag": "2024 - Sekarang",
+    "about.master_tag": "Lulus",
     "about.master_inst": "IPB UNIVERSITY • BOGOR",
-    "about.master_degree": "Program Magister Statistika dan Sains Data",
+    "about.master_degree": "Magister Statistika dan Sains Data",
     "about.master_gpa": "IPK: 3.61 / 4.00",
     "about.master_focus": "<strong>Fokus:</strong> Analisis data statistik, komputasi sains data, machine learning, dan pemodelan topik teks.",
     "about.master_thesis": "<strong>Tesis:</strong> <em>\"Performance Evaluation of BERTopic for Multidomain Topic Modeling of Indonesian News Texts.\"</em>",
@@ -139,6 +139,13 @@ const translations = {
     "proj.btn_detail": "Detail Proyek",
 
     // Publications Section
+    "pub.desc1": "Evaluasi komparatif representasi embedding transformers lokal dalam mengekstraksi klaster narasi berita program Makan Bergizi Gratis (MBG).",
+    "pub.desc2": "Analisis komparatif kinerja algoritma word embedding Word2Vec vs Global Vectors (GloVe) untuk ekstraksi sentimen dan pola ulasan produk busana.",
+    "pub.desc3": "SAS Institute Global Competition paper pada pengelompokan wilayah seismik di Pulau Sulawesi berbasis analitik terpadu SAS.",
+    "pub.desc4": "Eksplorasi multivariat ketahanan pangan kawasan Sulawesi, Maluku, dan Papua (Sulampua) guna identifikasi dimensi dominan disparitas logistik.",
+    "pub.desc5": "Artikel prosiding The 3rd International Conference on Data Science and Official Statistics pada klastering ketahanan pangan untuk akselerasi target SDG 2.",
+    "pub.desc6": "Penelitian spasial epidemiologi autokorelasi spasial Moran dan perancangan web dashboard sistem informasi kesehatan terintegrasi.",
+    "pub.desc7": "Studi kuantitatif dan analisis statistik faktor-faktor determinan pendorong tren kriminalitas regional selama periode pandemi COVID-19.",
     "pub.tag": "Publikasi Ilmiah & Luaran Riset",
     "pub.title": "Karya Ilmiah di Jurnal & Prosiding Nasional/Internasional",
     "pub.subtitle": "Kontribusi empiris pada literatur sains data, pemodelan topik teks, ketahanan pangan, dan epidemiologi spasial.",
@@ -237,9 +244,9 @@ const translations = {
     "about.focus_label": "Core Research & Applied Interests:",
     "about.supporting_label": "Supporting Technical Capabilities:",
     "about.edu_title": "Formal Academic Background",
-    "about.master_tag": "2024 - Present",
+    "about.master_tag": "Graduated",
     "about.master_inst": "IPB UNIVERSITY • BOGOR",
-    "about.master_degree": "Master's Program in Statistics and Data Science",
+    "about.master_degree": "Master’s Degree in Statistics and Data Science",
     "about.master_gpa": "GPA: 3.61 / 4.00",
     "about.master_focus": "<strong>Focus:</strong> Statistical data analysis, data science and computing, machine learning, and text analytics.",
     "about.master_thesis": "<strong>Thesis:</strong> <em>\"Performance Evaluation of BERTopic for Multidomain Topic Modeling of Indonesian News Texts.\"</em>",
@@ -320,6 +327,13 @@ const translations = {
     "proj.btn_detail": "Project Details",
 
     // Publications Section
+    "pub.desc1": "Comparative evaluation of Indonesian Transformer embeddings for topic modeling of news coverage about the Free Nutritious Meal program.",
+    "pub.desc2": "Comparison of Word2Vec and GloVe embeddings for sentiment analysis and pattern discovery in fashion product reviews.",
+    "pub.desc3": "SAS Curiosity Cup finalist paper on clustering earthquake-prone regions of Sulawesi using SAS analytics.",
+    "pub.desc4": "Multivariate exploration of food security in Sulawesi, Maluku, and Papua to identify clusters and dominant dimensions.",
+    "pub.desc5": "Conference proceedings paper on clustering regional food insecurity with machine learning to support SDG 2: Zero Hunger.",
+    "pub.desc6": "Spatial epidemiology research using Moran’s Index and a web dashboard to support schistosomiasis eradication in Central Sulawesi.",
+    "pub.desc7": "Quantitative analysis of regional crime patterns and contributing factors during the COVID-19 pandemic in Central Sulawesi.",
     "pub.tag": "Scientific Publications & Research Outputs",
     "pub.title": "Peer-Reviewed Journals & Conference Proceedings",
     "pub.subtitle": "Empirical contributions to data science, natural language processing, regional food security, and spatial epidemiology.",
@@ -373,6 +387,7 @@ let currentLang = localStorage.getItem('lang') || 'id';
 function setLanguage(lang) {
   if (!translations[lang]) return;
   currentLang = lang;
+  document.documentElement.lang = lang;
   localStorage.setItem('lang', lang);
 
   // Update navbar indicator
@@ -708,6 +723,12 @@ const projectData = {
   }
 };
 
+// Update these values in project-links.js when resources are available.
+Object.entries(window.PORTFOLIO_PROJECT_LINKS || {}).forEach(([id, links]) => {
+  if (!projectData[id]) return;
+  Object.entries(links).forEach(([key, value]) => { if (value) projectData[id][key] = value; });
+});
+let modalReturnFocus = null;
 // Update Project Cards on Language Change
 function updateProjectCardsLang() {
   const cards = document.querySelectorAll('.project-card');
@@ -739,6 +760,7 @@ function openProjectModal(projectId) {
   const modal = document.getElementById('project-modal');
   const modalContent = document.getElementById('modal-content');
 
+  if (modal.classList.contains('hidden')) modalReturnFocus = document.activeElement;
   // Track current project in modal
   modal.setAttribute('data-current-project', projectId);
 
@@ -791,39 +813,26 @@ function openProjectModal(projectId) {
     pointsContainer.appendChild(li);
   });
 
-  // Action links: only render valid URLs, no generic profile masquerading as repository
+  // Resource slots remain visible until the owner supplies each link.
   const linksContainer = document.getElementById('modal-links');
   linksContainer.innerHTML = '';
-  
-  if (data.demoUrl) {
-    const demoBtn = document.createElement('a');
-    demoBtn.href = data.demoUrl;
-    demoBtn.target = '_blank';
-    demoBtn.rel = 'noopener noreferrer';
-    demoBtn.className = 'inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-sm transition-colors';
-    demoBtn.innerHTML = `
-      <span>${langData.demoLabel || translations[currentLang]['project.demo']}</span>
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-    `;
-    linksContainer.appendChild(demoBtn);
-  }
-
-  // Only display GitHub button if specific repository URL exists
-  if (data.githubUrl && typeof data.githubUrl === 'string' && data.githubUrl.trim() !== '') {
-    const ghBtn = document.createElement('a');
-    ghBtn.href = data.githubUrl;
-    ghBtn.target = '_blank';
-    ghBtn.rel = 'noopener noreferrer';
-    ghBtn.className = 'inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg transition-colors';
-    ghBtn.innerHTML = `
-      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
-      <span>${translations[currentLang]['project.github']}</span>
-    `;
-    linksContainer.appendChild(ghBtn);
-  }
+  const labels = currentLang === 'id' ? ['Kode', 'Demo', 'Laporan'] : ['Code', 'Demo', 'Report'];
+  ['githubUrl', 'demoUrl', 'reportUrl'].forEach((key, i) => {
+    let url;
+    try { url = new URL(data[key], location.href); if (!data[key] || !['https:', 'http:'].includes(url.protocol)) url = null; } catch { url = null; }
+    const item = document.createElement(url ? 'a' : 'span');
+    item.className = 'project-resource' + (url ? '' : ' resource-pending');
+    if (url) { item.href = url.href; item.target = '_blank'; item.rel = 'noopener noreferrer'; }
+    else item.setAttribute('aria-disabled', 'true');
+    item.textContent = labels[i] + (url ? ' ↗' : (currentLang === 'id' ? ' · Segera tersedia' : ' · Coming soon'));
+    linksContainer.appendChild(item);
+  });
 
   // Show modal
   modal.classList.remove('hidden');
+  document.querySelector('main').inert = true;
+  document.querySelector('header').inert = true;
+  document.getElementById('modal-close-btn').focus();
   document.body.classList.add('overflow-hidden');
   setTimeout(() => {
     modalContent.classList.remove('opacity-0', 'scale-95');
@@ -834,7 +843,7 @@ function openProjectModal(projectId) {
 function closeProjectModal() {
   const modal = document.getElementById('project-modal');
   const modalContent = document.getElementById('modal-content');
-  if (!modal) return;
+  if (!modal || modal.classList.contains('hidden')) return;
 
   modalContent.classList.remove('opacity-100', 'scale-100');
   modalContent.classList.add('opacity-0', 'scale-95');
@@ -842,6 +851,9 @@ function closeProjectModal() {
   setTimeout(() => {
     modal.classList.add('hidden');
     document.body.classList.remove('overflow-hidden');
+    document.querySelector('main').inert = false;
+    document.querySelector('header').inert = false;
+    if (modalReturnFocus && modalReturnFocus.isConnected) modalReturnFocus.focus();
   }, 150);
 }
 
@@ -853,7 +865,15 @@ if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeProjectModal);
 if (modalBackdrop) modalBackdrop.addEventListener('click', closeProjectModal);
 
 document.addEventListener('keydown', (e) => {
+  const modal = document.getElementById('project-modal');
+  if (modal.classList.contains('hidden')) return;
   if (e.key === 'Escape') closeProjectModal();
+  if (e.key === 'Tab') {
+    const items = Array.from(modal.querySelectorAll('button, a[href], [tabindex="0"]')).filter(el => el.getClientRects().length);
+    const first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
 });
 
 // --- 5. PROJECT CATEGORY FILTER (5 CATEGORIES) ---
