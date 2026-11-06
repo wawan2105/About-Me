@@ -150,3 +150,8 @@ code, pre, .font-mono {
 .dark .device-toolbar { background: #0f172a; border-color: #334155; color: #e2e8f0; }
 .dark .device-preview { background: #020617; }
 @media print { .device-toolbar, .device-preview { display: none !important; } .device-preview-open { overflow: visible; } }
+
+/* Keep decorative glows inside the viewport. */
+html, body { overflow-x: clip; }
+header a[aria-label="Beranda / Home"] > div:first-child { flex-shrink: 0; }
+@media (max-width: 399px) { header a[aria-label="Beranda / Home"] > div:nth-child(2) > span:nth-child(2) { display: none; } header a[aria-label="Beranda / Home"] { gap: 8px; } }
