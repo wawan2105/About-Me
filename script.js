@@ -32,7 +32,7 @@ const translations = {
     "hero.direct_links": "Tautan Langsung:",
     "hero.term_comment": "# Ringkasan Profil & Rekam Jejak",
     "hero.metric1_label": "Project",
-    "hero.metric1_val": "10+",
+    "hero.metric1_val": "9+",
     "hero.metric1_desc": "Data Science & Applied Research",
     "hero.metric2_label": "Publikasi Ilmiah",
     "hero.metric2_desc": "Jurnal & Konferensi Bereputasi",
@@ -213,7 +213,7 @@ const translations = {
     "hero.direct_links": "Direct Links:",
     "hero.term_comment": "# Summary of Profile & Track Record",
     "hero.metric1_label": "Project",
-    "hero.metric1_val": "10+",
+    "hero.metric1_val": "9+",
     "hero.metric1_desc": "Data Science & Applied Research",
     "hero.metric2_label": "Scientific Publications",
     "hero.metric2_desc": "Peer-Reviewed Journals & Conf.",
@@ -703,36 +703,6 @@ const projectData = {
         'Developed analytical views and dashboard queries for branch, product, and sales performance tracking'
       ],
       demoLabel: null
-    }
-  },
-  'mongodb-r': {
-    category: 'database',
-    tags: ['MongoDB', 'R / mongolite', 'NoSQL', 'Aggregation Framework', 'RPubs'],
-    demoUrl: 'https://rpubs.com/wawansaputra2105_/1316904',
-    githubUrl: null,
-    id: {
-      title: 'MongoDB Aggregation Pipeline with R',
-      subtitle: 'Dokumentasi Eksekusi Query Agregasi NoSQL di Bahasa R',
-      badge: 'NoSQL & Data Pipelines',
-      overview: 'Dokumentasi terstruktur mengenai pemanfaatan R bersama basis data NoSQL MongoDB untuk eksekusi aggregation pipeline multi-stage, data restructuring, dan analisis data berformat dokumen semi-terstruktur.',
-      keyPoints: [
-        'Implementasi stage pipeline ($match, $group, $project, $unwind) langsung dari sesi R',
-        'Penyusunan alur agregasi data pada level basis data sebelum analisis statistik lanjutan',
-        'Dipublikasikan secara terbuka untuk komunitas di platform RPubs'
-      ],
-      demoLabel: 'Buka di RPubs'
-    },
-    en: {
-      title: 'MongoDB Aggregation Pipeline with R',
-      subtitle: 'Documented NoSQL Aggregation and Analytical Query Workflows',
-      badge: 'NoSQL & Data Pipelines',
-      overview: 'Documented an R-based project showcasing multi-stage aggregation pipeline construction with NoSQL MongoDB databases, enabling structured restructuring and analysis of semi-structured document datasets.',
-      keyPoints: [
-        'Constructed multi-stage aggregation pipelines ($match, $group, $project, $unwind) from R sessions',
-        'Leveraged database-level transformations to prepare analysis-ready data pipelines',
-        'Open-source knowledge documentation published on the RPubs technical platform'
-      ],
-      demoLabel: 'Open on RPubs'
     }
   },
   'fsva': {
