@@ -32,7 +32,7 @@ const translations = {
     "hero.direct_links": "Tautan Langsung:",
     "hero.term_comment": "# Ringkasan Profil & Rekam Jejak",
     "hero.metric1_label": "Project",
-    "hero.metric1_val": "9+",
+    "hero.metric1_val": "10+",
     "hero.metric1_desc": "Data Science & Applied Research",
     "hero.metric2_label": "Publikasi Ilmiah",
     "hero.metric2_desc": "Jurnal & Konferensi Bereputasi",
@@ -220,7 +220,7 @@ const translations = {
     "hero.direct_links": "Direct Links:",
     "hero.term_comment": "# Summary of Profile & Track Record",
     "hero.metric1_label": "Project",
-    "hero.metric1_val": "9+",
+    "hero.metric1_val": "10+",
     "hero.metric1_desc": "Data Science & Applied Research",
     "hero.metric2_label": "Scientific Publications",
     "hero.metric2_desc": "Peer-Reviewed Journals & Conf.",
@@ -509,6 +509,44 @@ if (mobileMenuBtn && mobileMenu) {
 // 'database': Database & Data Engineering
 // 'dashboard': Dashboards
 const projectData = {
+  'labour-news': {
+  "category": "ml",
+  "tags": [
+    "Python",
+    "BERTopic",
+    "IndoBERT",
+    "IndoSBERT",
+    "Official Statistics"
+  ],
+  "demoUrl": null,
+  "githubUrl": null,
+  "id": {
+    "title": "Online News for Labour Market Monitoring in Indonesia",
+    "subtitle": "Riset NLP · Manuskrip IFLP–ICDSOS 2026",
+    "badge": "Riset / NLP",
+    "overview": "Pemanfaatan berita CNN Indonesia dan Detik sebagai informasi pelengkap pemantauan isu ketenagakerjaan. Penelitian membandingkan IndoBERT dan IndoSBERT dalam BERTopic serta menganalisis perubahan perhatian media bulanan.",
+    "keyPoints": [
+      "Menyusun 28 kata kunci berbasis konsep, membangun pipeline scraping berjejak audit, dan membentuk korpus 5.700 artikel dari periode Januari 2025–Agustus 2026.",
+      "Membandingkan koherensi, keragaman, silhouette, dan cakupan penetapan topik pada konfigurasi yang sama. Kedua model menghasilkan 56 topik; IndoSBERT mencapai NPMI 0,224 dan rasio tanpa topik 23,3%.",
+      "Meninjau topik upah, aksi buruh, pengangguran, subsidi, rekrutmen dan PHK. Analisis temporal memakai periode bersama November 2025–Agustus 2026.",
+      "Status manuskrip penelitian. Hasil mencerminkan pemberitaan dua portal dan embedding dengan batas 128 token."
+    ],
+    "demoLabel": null
+  },
+  "en": {
+    "title": "Online News for Labour Market Monitoring in Indonesia",
+    "subtitle": "NLP Research · IFLP–ICDSOS 2026 Manuscript",
+    "badge": "Research / NLP",
+    "overview": "Used CNN Indonesia and Detik news as complementary information for labour-market monitoring. Compared IndoBERT and IndoSBERT within BERTopic and examined monthly changes in media attention.",
+    "keyPoints": [
+      "Developed 28 concept-informed search terms, an auditable scraping pipeline, and a 5,700-article corpus covering January 2025–August 2026.",
+      "Compared coherence, diversity, silhouette and assignment coverage under matched settings. Both models produced 56 topics; IndoSBERT achieved NPMI 0.224 and an unassigned share of 23.3%.",
+      "Reviewed coverage of wages, demonstrations, unemployment, subsidies, recruitment and layoffs. Temporal comparisons use November 2025–August 2026.",
+      "Research manuscript. Results reflect two news sources and embeddings capped at 128 tokens."
+    ],
+    "demoLabel": null
+  }
+},
   "google-play-scraping": {"category": "database", "tags": ["R", "Python", "google-play-scraper", "reticulate", "MongoDB", "mongolite", "ggplot2"], "demoUrl": null, "githubUrl": null, "id": {"title": "Google Play Store Scraping & App Market Analytics", "subtitle": "Pengumpulan Data Aplikasi, Agregasi NoSQL & Visualisasi Pasar", "badge": "Web Scraping & Analytics", "overview": "Mengumpulkan 1.340 aplikasi unik dari Google Play Store, mengolah data dengan R dan Python, serta menganalisis rating, unduhan, kategori, dan developer melalui agregasi MongoDB.", "keyPoints": ["Pencarian aplikasi berbasis kata kunci dengan google-play-scraper dan integrasi R–Python melalui reticulate", "Pembersihan dan penyimpanan data aplikasi ke MongoDB menggunakan mongolite; dataset JSON mencakup 1.340 app_id unik", "Pipeline agregasi MongoDB untuk perbandingan kategori, developer, rating, unduhan, serta proporsi aplikasi berbayar", "Visualisasi dengan ggplot2 dan dokumentasi analisis dalam R Markdown; mencakup aplikasi populer dengan rating rendah dan hidden gems"]}, "en": {"title": "Google Play Store Scraping & App Market Analytics", "subtitle": "App Data Collection, NoSQL Aggregation & Market Visualization", "badge": "Web Scraping & Analytics", "overview": "Collected 1,340 unique Google Play Store apps and combined R, Python, and MongoDB aggregation to explore app ratings, downloads, categories, and developers.", "keyPoints": ["Keyword-based app discovery using google-play-scraper and R–Python integration through reticulate", "Data cleaning and MongoDB storage with mongolite; the JSON dataset contains 1,340 unique app IDs", "MongoDB aggregation pipelines comparing categories, developers, ratings, downloads, and paid-app proportions", "ggplot2 visualizations and R Markdown analysis covering popular low-rated apps and potential hidden gems"]}},
   'bertopic': {
     category: 'ml',
@@ -1022,3 +1060,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.key === 'Escape' && preview) toolbar.querySelector('[data-device="laptop"]').click();
   });
 });
+
