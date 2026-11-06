@@ -32,7 +32,7 @@ const translations = {
     "hero.direct_links": "Tautan Langsung:",
     "hero.term_comment": "# Ringkasan Profil & Rekam Jejak",
     "hero.metric1_label": "Project",
-    "hero.metric1_val": "9+",
+    "hero.metric1_val": "10+",
     "hero.metric1_desc": "Data Science & Applied Research",
     "hero.metric2_label": "Publikasi Ilmiah",
     "hero.metric2_desc": "Jurnal & Konferensi Bereputasi",
@@ -213,7 +213,7 @@ const translations = {
     "hero.direct_links": "Direct Links:",
     "hero.term_comment": "# Summary of Profile & Track Record",
     "hero.metric1_label": "Project",
-    "hero.metric1_val": "9+",
+    "hero.metric1_val": "10+",
     "hero.metric1_desc": "Data Science & Applied Research",
     "hero.metric2_label": "Scientific Publications",
     "hero.metric2_desc": "Peer-Reviewed Journals & Conf.",
@@ -494,6 +494,7 @@ if (mobileMenuBtn && mobileMenu) {
 // 'database': Database & Data Engineering
 // 'dashboard': Dashboards
 const projectData = {
+  "google-play-scraping": {"category": "database", "tags": ["R", "Python", "google-play-scraper", "reticulate", "MongoDB", "mongolite", "ggplot2"], "demoUrl": null, "githubUrl": null, "id": {"title": "Google Play Store Scraping & App Market Analytics", "subtitle": "Pengumpulan Data Aplikasi, Agregasi NoSQL & Visualisasi Pasar", "badge": "Web Scraping & Analytics", "overview": "Mengumpulkan 1.340 aplikasi unik dari Google Play Store, mengolah data dengan R dan Python, serta menganalisis rating, unduhan, kategori, dan developer melalui agregasi MongoDB.", "keyPoints": ["Pencarian aplikasi berbasis kata kunci dengan google-play-scraper dan integrasi R–Python melalui reticulate", "Pembersihan dan penyimpanan data aplikasi ke MongoDB menggunakan mongolite; dataset JSON mencakup 1.340 app_id unik", "Pipeline agregasi MongoDB untuk perbandingan kategori, developer, rating, unduhan, serta proporsi aplikasi berbayar", "Visualisasi dengan ggplot2 dan dokumentasi analisis dalam R Markdown; mencakup aplikasi populer dengan rating rendah dan hidden gems"]}, "en": {"title": "Google Play Store Scraping & App Market Analytics", "subtitle": "App Data Collection, NoSQL Aggregation & Market Visualization", "badge": "Web Scraping & Analytics", "overview": "Collected 1,340 unique Google Play Store apps and combined R, Python, and MongoDB aggregation to explore app ratings, downloads, categories, and developers.", "keyPoints": ["Keyword-based app discovery using google-play-scraper and R–Python integration through reticulate", "Data cleaning and MongoDB storage with mongolite; the JSON dataset contains 1,340 unique app IDs", "MongoDB aggregation pipelines comparing categories, developers, ratings, downloads, and paid-app proportions", "ggplot2 visualizations and R Markdown analysis covering popular low-rated apps and potential hidden gems"]}},
   'bertopic': {
     category: 'ml',
     tags: ['Python', 'BERTopic', 'IndoBERT', 'IndoSBERT', 'mBERT', 'mMPNet', 'UMAP', 'HDBSCAN'],
